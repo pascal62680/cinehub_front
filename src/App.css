@@ -84,3 +84,41 @@
     padding: 4px 10px;
     cursor: pointer;
 }
+
+.film-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.film-card {
+    background: white;
+    border-radius: 8px;
+    padding: 16px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.film-card h2 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #1f3b73;
+}
+
+.film-card p {
+    margin: 0;
+}
+
+.film-meta {
+    color: #6b7383;
+    font-size: 0.9rem;
+}
+
+.film-card a {
+    margin-top: auto;
+    color: #1f3b73;
+    font-weight: 600;
+    text-decoration: none;
+}
