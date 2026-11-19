@@ -1,12 +1,33 @@
-import { NavLink } from "react-router";
+import { NavLink, useNavigate } from "react-router";
 
-function Navbar() {
+// Lit le contenu (payload) du token JWT
+function readToken(token) {
+    return JSON.parse(atob(token.split(".")[1]));
+}
+
+function Navbar({ token, onLogout }) {
+    const navigate = useNavigate();
+    const user = token ? readToken(token) : null;
+
+    function handleClick() {
+        onLogout();
+        navigate("/login");
+    }
+
     return (
         <nav className="navbar">
             <span className="logo">🎬 CineHub</span>
             <NavLink to="/">Films</NavLink>
-            <NavLink to="/reservations">Mes réservations</NavLink>
-            <NavLink to="/login">Connexion</NavLink>
+
+            {user ? (
+                <>
+                    <NavLink to="/reservations">Mes réservations</NavLink>
+                    <span className="hello">Bonjour {user.us_username}</span>
+                    <button className="logout" onClick={handleClick}>Déconnexion</button>
+                </>
+            ) : (
+                <NavLink to="/login">Connexion</NavLink>
+            )}
         </nav>
     );
 }

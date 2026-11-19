@@ -28,3 +28,59 @@
     margin: 0 auto;
     padding: 24px;
 }
+.form-card {
+    max-width: 380px;
+    margin: 40px auto;
+    padding: 24px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-card form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.form-card label {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-weight: 600;
+}
+
+.form-card input {
+    padding: 8px;
+    border: 1px solid #c8cfdb;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.form-card button {
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background: #1f3b73;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.error {
+    color: #c0392b;
+    margin: 0;
+}
+
+.navbar .hello {
+    color: white;
+}
+
+.navbar .logout {
+    background: transparent;
+    border: 1px solid #c9d6f0;
+    color: #c9d6f0;
+    border-radius: 4px;
+    padding: 4px 10px;
+    cursor: pointer;
+}
