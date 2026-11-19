@@ -1,14 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router";
 import { apiFetch } from "../api.js";
-
-// "2026-12-01 20:30:00" → "mardi 1 décembre 2026 à 20:30"
-function formatDate(datetime) {
-    const date = new Date(datetime.replace(" ", "T"));
-    return date.toLocaleDateString("fr-FR", {
-        weekday: "long", day: "numeric", month: "long", year: "numeric"
-    }) + " à " + date.toLocaleTimeString("fr-FR", { hour: "2-digit", minute: "2-digit" });
-}
+import ScreeningItem from "../components/ScreeningItem.jsx";
 
 function FilmDetail() {
     const { id } = useParams(); // le numéro dans l'adresse /films/1
@@ -52,11 +45,7 @@ function FilmDetail() {
             ) : (
                 <ul className="screening-list">
                     {film.screenings.map((s) => (
-                        <li key={s.sc_id}>
-                            <strong>{formatDate(s.sc_datetime)}</strong>
-                            <span>{s.ro_name}</span>
-                            <span>{s.sc_price} €</span>
-                        </li>
+                        <ScreeningItem key={s.sc_id} screening={s} />
                     ))}
                 </ul>
             )}

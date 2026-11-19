@@ -143,3 +143,44 @@
 .screening-list li strong {
     flex: 1;
 }
+.screening-list li {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 6px;
+}
+
+.screening-row {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.screening-row strong {
+    flex: 1;
+}
+
+.seats-input {
+    width: 60px;
+    padding: 6px;
+    border: 1px solid #c8cfdb;
+    border-radius: 4px;
+}
+
+.screening-row button {
+    padding: 6px 14px;
+    border: none;
+    border-radius: 4px;
+    background: #1f3b73;
+    color: white;
+    cursor: pointer;
+}
+
+.screening-row button:disabled {
+    background: #8a93a3;
+    cursor: wait;
+}
+
+.success {
+    color: #2f9a5a;
+    margin: 0;
+}
