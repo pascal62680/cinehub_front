@@ -1,0 +1,30 @@
+.navbar {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    padding: 14px 24px;
+    background: #67168a;
+}
+
+.navbar .logo {
+    color: white;
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-right: auto;
+}
+
+.navbar a {
+    color: #c9d6f0;
+    text-decoration: none;
+}
+
+.navbar a.active {
+    color: white;
+    font-weight: bold;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 24px;
+}
