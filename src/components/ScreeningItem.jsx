@@ -1,13 +1,7 @@
 import { useState } from "react";
 import { apiFetch } from "../api.js";
+import { formatDate } from "../format.js";
 
-// "2026-12-01 20:30:00" → "mardi 1 décembre 2026 à 20:30"
-function formatDate(datetime) {
-    const date = new Date(datetime.replace(" ", "T"));
-    return date.toLocaleDateString("fr-FR", {
-        weekday: "long", day: "numeric", month: "long", year: "numeric"
-    }) + " à " + date.toLocaleTimeString("fr-FR", { hour: "2-digit", minute: "2-digit" });
-}
 
 // Une séance, avec son propre formulaire de réservation
 function ScreeningItem({ screening }) {
