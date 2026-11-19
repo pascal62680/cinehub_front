@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Routes, Route } from "react-router";
 import Navbar from "./components/Navbar.jsx";
 import Home from "./pages/Home.jsx";
+import FilmDetail from "./pages/FilmDetail.jsx";
 import Login from "./pages/Login.jsx";
 import MyReservations from "./pages/MyReservations.jsx";
 import NotFound from "./pages/NotFound.jsx";
@@ -27,6 +28,7 @@ function App() {
             <main className="container">
                 <Routes>
                     <Route path="/" element={<Home />} />
+                    <Route path="/films/:id" element={<FilmDetail />} />
                     <Route path="/login" element={<Login onLogin={handleLogin} />} />
                     <Route path="/reservations" element={<MyReservations />} />
                     <Route path="*" element={<NotFound />} />
