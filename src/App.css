@@ -187,3 +187,46 @@
 .screening-row button.danger {
     background: #c0392b;
 }
+.admin-section {
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 24px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.admin-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.admin-form input,
+.admin-form select {
+    padding: 8px;
+    border: 1px solid #c8cfdb;
+    border-radius: 4px;
+}
+
+.admin-section button {
+    padding: 6px 14px;
+    border: none;
+    border-radius: 4px;
+    background: #1f3b73;
+    color: white;
+    cursor: pointer;
+}
+
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 12px;
+}
+
+.admin-table th,
+.admin-table td {
+    text-align: left;
+    padding: 8px;
+    border-bottom: 1px solid #e3e7ee;
+}

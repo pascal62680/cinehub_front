@@ -1,9 +1,5 @@
 import { NavLink, useNavigate } from "react-router";
-
-// Lit le contenu (payload) du token JWT
-function readToken(token) {
-    return JSON.parse(atob(token.split(".")[1]));
-}
+import { readToken } from "../auth.js";
 
 function Navbar({ token, onLogout }) {
     const navigate = useNavigate();
@@ -22,6 +18,7 @@ function Navbar({ token, onLogout }) {
             {user ? (
                 <>
                     <NavLink to="/reservations">Mes réservations</NavLink>
+                    {user.us_role === "admin" && <NavLink to="/admin">Admin</NavLink>}
                     <span className="hello">Bonjour {user.us_username}</span>
                     <button className="logout" onClick={handleClick}>Déconnexion</button>
                 </>
