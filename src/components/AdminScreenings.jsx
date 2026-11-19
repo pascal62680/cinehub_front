@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { apiFetch } from "../api.js";
 import { formatDate } from "../format.js";
+import ConfirmModal from "./ConfirmModal.jsx";
 
 const EMPTY_SCREENING = { film: "", room: "", datetime: "", price: "" };
 
@@ -12,6 +13,7 @@ function AdminScreenings() {
     const [message, setMessage] = useState("");
     const [error, setError] = useState("");
     const [refresh, setRefresh] = useState(0);
+    const [toDelete, setToDelete] = useState(null); // id de la séance à supprimer (null = modale fermée)
 
     // Charge les séances, et les films + salles pour les listes déroulantes
     useEffect(() => {
@@ -56,8 +58,10 @@ function AdminScreenings() {
         setRefresh(refresh + 1);
     }
 
-    async function handleDelete(id) {
-        if (!window.confirm("Supprimer cette séance et ses réservations ?")) return;
+    async function handleDelete() {
+        const id = toDelete;
+        setToDelete(null); // ferme la modale
+
         setMessage("");
         setError("");
 
@@ -114,12 +118,23 @@ function AdminScreenings() {
                             <td>{s.ro_name}</td>
                             <td>{s.sc_price} €</td>
                             <td>
-                                <button className="danger" onClick={() => handleDelete(s.sc_id)}>Supprimer</button>
+                                <button className="danger" onClick={() => setToDelete(s.sc_id)}>Supprimer</button>
                             </td>
                         </tr>
                     ))}
                 </tbody>
             </table>
+            
+            {toDelete && (
+                <ConfirmModal
+                    title="Supprimer la séance ?"
+                    message="Ses réservations seront aussi supprimées."
+                    confirmLabel="Supprimer"
+                    onConfirm={handleDelete}
+                    onCancel={() => setToDelete(null)}
+                />
+            )}
+
         </section>
     );
 }

@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react";
 import { apiFetch } from "../api.js";
 import { formatDate } from "../format.js";
+import ConfirmModal from "../components/ConfirmModal.jsx";
 
 function MyReservations() {
     const [reservations, setReservations] = useState([]);
     const [error, setError] = useState("");
     const [loading, setLoading] = useState(true);
+    const [toCancel, setToCancel] = useState(null); // id de la réservation à annuler
 
     // Au chargement : mes réservations
     useEffect(() => {
@@ -29,8 +31,9 @@ function MyReservations() {
     }, []);
 
     // Annuler une réservation
-    async function handleCancel(id) {
-        if (!window.confirm("Annuler cette réservation ?")) return;
+    async function handleCancel() {
+        const id = toCancel;
+        setToCancel(null); // ferme la modale
 
         const { ok, data } = await apiFetch(`/reservations/${id}`, { method: "DELETE" });
 
@@ -62,13 +65,23 @@ function MyReservations() {
                                 <span>{formatDate(r.sc_datetime)}</span>
                                 <span>{r.ro_name}</span>
                                 <span>{r.re_seats} place(s)</span>
-                                <button className="danger" onClick={() => handleCancel(r.re_id)}>
+                                <button className="danger" onClick={() => setToCancel(r.re_id)}>
                                     Annuler
                                 </button>
                             </div>
                         </li>
                     ))}
                 </ul>
+            )}
+
+            {toCancel && (
+                <ConfirmModal
+                    title="Annuler la réservation ?"
+                    message="Les places seront libérées pour d'autres spectateurs."
+                    confirmLabel="Annuler la réservation"
+                    onConfirm={handleCancel}
+                    onCancel={() => setToCancel(null)}
+                />
             )}
         </div>
     );
