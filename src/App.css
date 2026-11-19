@@ -230,3 +230,6 @@
     padding: 8px;
     border-bottom: 1px solid #e3e7ee;
 }
+.admin-section button.danger {
+    background: #c0392b;
+}
