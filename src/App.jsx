@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar.jsx";
 import Home from "./pages/Home.jsx";
 import FilmDetail from "./pages/FilmDetail.jsx";
 import Login from "./pages/Login.jsx";
+import Register from "./pages/Register.jsx";
 import MyReservations from "./pages/MyReservations.jsx";
 import Admin from "./pages/Admin.jsx";
 import NotFound from "./pages/NotFound.jsx";
@@ -34,6 +35,7 @@ function App() {
                     <Route path="/" element={<Home />} />
                     <Route path="/films/:id" element={<FilmDetail />} />
                     <Route path="/login" element={<Login onLogin={handleLogin} />} />
+                    <Route path="/register" element={<Register onLogin={handleLogin} />} />
                     <Route path="/reservations" element={<MyReservations />} />
                     <Route path="/admin" element={isAdmin ? <Admin /> : <NotFound />} />
                     <Route path="*" element={<NotFound />} />

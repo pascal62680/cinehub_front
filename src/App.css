@@ -21,6 +21,7 @@
 .navbar a.active {
     color: white;
     font-weight: bold;
+    text-decoration: underline;
 }
 
 .container {
@@ -104,7 +105,7 @@
 .film-card h2 {
     margin: 0;
     font-size: 1.2rem;
-    color: #1f3b73;
+    color: #731f6f;
 }
 
 .film-card p {
@@ -118,7 +119,7 @@
 
 .film-card a {
     margin-top: auto;
-    color: #1f3b73;
+    color: #0b9c4a;
     font-weight: 600;
     text-decoration: none;
 }
@@ -285,4 +286,22 @@
 .modal-actions .btn-danger {
     background: #c0392b;
     color: white;
+}
+.form-switch {
+    text-align: center;
+    margin: 16px 0 0;
+}
+
+.form-switch a {
+    color: #920c77;
+    font-weight: 600;
+}
+.navbar a.admin-link {
+    color: #f5c518;
+}
+
+.navbar a.admin-link.active {
+    color: #ffd84d;
+    font-weight: bold;
+    text-decoration: underline;  
 }

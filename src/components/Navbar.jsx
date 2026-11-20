@@ -18,12 +18,15 @@ function Navbar({ token, onLogout }) {
             {user ? (
                 <>
                     <NavLink to="/reservations">Mes réservations</NavLink>
-                    {user.us_role === "admin" && <NavLink to="/admin">Admin</NavLink>}
+                    {user.us_role === "admin" && <NavLink to="/admin" className="admin-link">Admin</NavLink>}
                     <span className="hello">Bonjour {user.us_username}</span>
                     <button className="logout" onClick={handleClick}>Déconnexion</button>
                 </>
             ) : (
-                <NavLink to="/login">Connexion</NavLink>
+                <>
+                    <NavLink to="/register">Inscription</NavLink>
+                    <NavLink to="/login">Connexion</NavLink>
+                </>
             )}
         </nav>
     );
