@@ -12,7 +12,7 @@ function Navbar({ token, onLogout }) {
 
     return (
         <nav className="navbar">
-            <span className="logo">🎬 CineHub</span>
+            <span className="logo"> 🎞️  CineHub   🍿 </span>
             <NavLink to="/">Films</NavLink>
 
             {user ? (
